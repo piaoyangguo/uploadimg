@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传图片</title>
+</head>
+<body>
+<div>
+    <img src="/static/12479.jpg" alt="12479.jpg" width="200" height="200">
+    <h3>已上传的图片</h3>
+    <div>
+        {% for tu in tus %}
+            <img src="{{ tu.image.url }}" alt="{{ tu.name }}" width="200" height="200">
+        {% endfor %}
+    </div>
+</div>
+<div>
+    <form action="" method="post" enctype="multipart/form-data" >
+        {% csrf_token %}
+        <input type="file" name="img" >
+        <input type="submit" name="提交">
+    </form>
+</div>
+</body>
+</html>
